@@ -16,7 +16,7 @@ module.exports = {
   // This is used in the publish-bundle step to avoid doing anything
   // with tags < v3.0.0.
   MIN_RELEASE_TAG_TO_PUBLISH: 'v3.0.0',
-  GITHUB_OWNER: 'GoogleChrome',
+  GITHUB_OWNER: 'WesWedding',
   GITHUB_REPO: 'workbox',
 
   // This is the environments that we should use for NODE_ENV.
