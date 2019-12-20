@@ -5,10 +5,18 @@
 
 <img src='https://user-images.githubusercontent.com/110953/28352645-7a8a66d8-6c0c-11e7-83af-752609e7e072.png' width='500px'/>
 
-# Welcome to Workbox!
+# Welcome to Weston's Workbox Workaround fork!
 
 Workbox is a collection of JavaScript libraries for
 [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/).
+
+## Difference from primary project
+This fork exists entirely to work around unfixed issues in Electron.  It is unlikely
+aspects of this repo will eventually make it into the main Workbox project, because
+these issues are really Electron's problems.
+
+* [Background Sync][no-background-sync] is disabled and can't be enabled!
+* `file` scheme will [not work in Cache API][no-cache].
 
 ## Documentation
 
@@ -23,50 +31,7 @@ available depending on your build tool or bundler of choice, including
 
 ## Contributing
 
-Development happens in the open on GitHub. We're thankful to the community for
-contributing any improvements.
-
-Please read the [guide to contributing](CONTRIBUTING.md) prior to filing any
-pull requests.
-
-<h2>Core Team</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top">
-        <img width="100" height="100" src="https://github.com/jeffposnick.png?s=150">
-        <br>
-        <a href="https://github.com/jeffposnick">Jeff Posnick</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="100" height="100" src="https://github.com/gauntface.png?s=150">
-        <br>
-        <a href="https://github.com/gauntface">Matt Gaunt</a>
-      </td>
-      <td align="center" width="20%" valign="top">
-        <img width="100" height="100" src="https://github.com/addyosmani.png?s=150">
-        <br>
-        <a href="https://github.com/addyosmani">Addy Osmani</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="100" height="100" src="https://github.com/philipwalton.png?s=150">
-        <br>
-        <a href="https://github.com/philipwalton">Philip Walton</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="100" height="100" src="https://github.com/prateekbh.png?s=150">
-        <br>
-        <a href="https://github.com/prateekbh">Prateek Bhatnagar</a>
-      </td>
-       <td align="center" valign="top">
-        <img width="100" height="100" src="https://github.com/kaycebasques.png?s=150">
-        <br>
-        <a href="https://github.com/kaycebasques">Kayce Basques</a>
-      </td>
-     </tr>
-  </tbody>
-</table>
+You should consider contributing directly to the Workbox project directly instead of this one!
 
 ## License
 
@@ -80,3 +45,6 @@ MIT, see [LICENSE](LICENSE) for details.
 [appveyor-url]: https://ci.appveyor.com/project/gauntface/workbox
 [dev-dependency-url]: https://david-dm.org/GoogleChrome/workbox?type=dev
 [dev-dependency-image]: https://david-dm.org/GoogleChrome/workbox/dev-status.svg
+
+[no-background-sync]: https://github.com/electron/electron/issues/9802
+[no-cache]: https://github.com/electron/electron/issues/2831#issuecomment-359707054
