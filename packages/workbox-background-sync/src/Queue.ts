@@ -345,10 +345,14 @@ class Queue {
    * In non-sync-supporting browsers, this will retry the queue on service
    * worker startup.
    *
+   * If Electron is detected, avoid using Background Sync.  We can't
+   * detect whether it is enabled without invoking it, which uses Promises.
+   * Promises can't be used within constructors.
+   *
    * @private
    */
   private _addSyncListener() {
-    if ('sync' in self.registration) {
+    if ('sync' in self.registration && !this._isElectron()) {
       self.addEventListener('sync', (event: SyncEvent) => {
         if (event.tag === `${TAG_PREFIX}:${this._name}`) {
           if (process.env.NODE_ENV !== 'production') {
@@ -394,6 +398,23 @@ class Queue {
       // every time the service worker starts up as a fallback.
       this._onSync({queue: this});
     }
+  }
+
+  /**
+   * Checks the user agent for the presence of Electron.
+   *
+   * @private
+   */
+  private _isElectron() {
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.indexOf(' electron/') > -1) {
+      if (process.env.NODE_ENV !== 'production') {
+        logger.log(`Electron detected from user agent`);
+      }
+      return true
+    }
+    return false
   }
 
   /**
