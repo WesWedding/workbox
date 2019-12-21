@@ -119,7 +119,13 @@ const putWrapper = async ({
     if (error.name === 'QuotaExceededError') {
       await executeQuotaErrorCallbacks();
     }
-    throw error;
+    if (error.name === 'TypeError') {
+      if (error.message.includes('Request scheme \'file\' is unsupported')) {
+        logger.warn('Cache failed to create due to unsupported file scheme.')
+      }
+    } else {
+      throw error;
+    }
   }
 
   for (let plugin of updatePlugins) {
