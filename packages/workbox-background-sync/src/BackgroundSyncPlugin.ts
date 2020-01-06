@@ -30,6 +30,10 @@ class BackgroundSyncPlugin implements WorkboxPlugin {
     this._queue = new Queue(name, options);
   }
 
+  forceSync () {
+    this._queue.doSync()
+  }
+
   /**
    * @param {Object} options
    * @param {Request} options.request

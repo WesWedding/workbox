@@ -341,6 +341,13 @@ class Queue {
   }
 
   /**
+   * Manually run the sync, regardless of backgroundSync.
+   */
+  doSync () {
+    this._onSync({queue: this})
+  }
+
+  /**
    * In sync-supporting browsers, this adds a listener for the sync event.
    * In non-sync-supporting browsers, this will retry the queue on service
    * worker startup.
@@ -396,7 +403,7 @@ class Queue {
       }
       // If the browser doesn't support background sync, retry
       // every time the service worker starts up as a fallback.
-      this._onSync({queue: this});
+      this.doSync()
     }
   }
 
