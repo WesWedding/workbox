@@ -33,6 +33,10 @@ available depending on your build tool or bundler of choice, including
 
 You should consider contributing directly to the Workbox project directly instead of this one!
 
+## Building Workbox
+
+See the [BUILD](./README.md) readme for some hints on how to even build this thing.
+
 ## License
 
 MIT, see [LICENSE](LICENSE) for details.
